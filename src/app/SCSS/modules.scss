@@ -1,0 +1,588 @@
+@import "./base.scss";
+/* Left Sidebar Styles */
+.leftSide-brand {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1.4rem;
+
+  .leftSide-brand-logo {
+    display: flex;
+    gap: 0.8rem;
+
+    img {
+      width: 2rem;
+      height: 2rem;
+    }
+
+    #menu-btn{
+      display: none;
+    }
+  }
+}
+
+.leftSide-navbar {
+  display: flex;
+  flex-direction: column;
+  height: 86vh;
+  position: relative;
+  top: 3rem;
+
+  a {
+    display: flex;
+    color: $color-info-dark;
+    margin-left: 2rem;
+    gap: 1rem;
+    align-items: center;
+    position: relative;
+    height: 3.7rem;
+    transition: all 300ms ease;
+
+    span {
+      font-size: 1.6rem;
+      transition: all 300ms ease;
+    }
+
+    &:last-child {
+      position: absolute;
+      bottom: 2rem;
+      width: 100%;
+    }
+
+    &.active {
+      background: $color-light;
+      color: $color-primary;
+      margin-left: 0;
+
+      &:before {
+        content: "";
+        width: 6px;
+        height: 100%;
+        background: $color-primary;
+      }
+
+      span {
+        color: $color-primary;
+        margin-left: calc(1rem - 6px);
+      }
+    }
+
+    &:hover {
+      color: $color-primary;
+
+      span {
+        margin-left: 1rem;
+      }
+    }
+  }
+  .message-count {
+    background: $color-danger;
+    color: $color-white;
+    padding: 1px 5px;
+    font-size: 200px;
+    border-radius: $border-radius-1;
+  }
+}
+
+/* Main Content Styles */
+.main-date {
+  display: inline-block;
+  background: $color-light;
+  border-radius: $border-radius-1;
+  margin-top: 1rem;
+  padding: 0.5rem 1.6rem;
+
+  input[type="date"] {
+    background: transparent;
+    color: $color-dark;
+  }
+}
+
+/* Cards Container Styles */
+.main-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.6rem;
+
+  small {
+    margin-top: 1.6rem;
+    display: block;
+  }
+
+  & > div {
+    background: $color-white;
+    padding: $card-padding;
+    border-radius: $card-border-radius;
+    margin-top: 1rem;
+    box-shadow: $box-shadow;
+    transition: all 300ms ease;
+
+    &:hover {
+      box-shadow: none;
+    }
+
+    span {
+      background: $color-primary;
+      padding: 0.5rem;
+      border-radius: 50%;
+      color: $color-white;
+      font-size: 2rem;
+    }
+
+    &.main-cards-sales {
+      svg circle {
+        stroke-dashoffset: -30;
+        stroke-dasharray: 200;
+      }
+    }
+
+    &.main-cards-expenses {
+      span {
+        background: $color-danger;
+      }
+      svg circle {
+        stroke-dashoffset: 20;
+        stroke-dasharray: 80;
+      }
+    }
+    &.main-cards-income {
+      span {
+        background: $color-success;
+      }
+      svg circle {
+        stroke-dashoffset: 35;
+      }
+    }
+
+    .main-cards-middle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  h3 {
+    margin: 1rem 0 0.6rem;
+    font-size: 1rem;
+  }
+
+  .main-cards-progress {
+    position: relative;
+    width: 92px;
+    height: 92px;
+    border-radius: 50%;
+
+    .main-cards-number {
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  svg {
+    width: 7rem;
+    height: 7rem;
+
+    circle {
+      fill: none;
+      stroke: $color-primary;
+      stroke-width: 14;
+      stroke-linecap: round;
+      transform: translate(5px, 5px);
+      stroke-dasharray: 110;
+      stroke-dashoffset: 92;
+    }
+  }
+}
+
+/* Table Styles */
+.main-table {
+  margin-top: 2rem;
+
+  a {
+    text-align: center;
+    display: block;
+    margin: 1rem auto;
+    color: $color-primary;
+  }
+
+  h2 {
+    margin-bottom: 0.8rem;
+  }
+
+  table {
+    background: $color-white;
+    width: 100%;
+    border-radius: $card-border-radius;
+    padding: $card-padding;
+    text-align: center;
+    box-shadow: $box-shadow;
+    transition: all 300ms ease;
+
+    &:hover {
+      box-shadow: none;
+    }
+    tbody {
+      td {
+        height: 2.8rem;
+        border-bottom: 1px solid $color-light;
+        color: $color-dark-variant;
+      }
+      tr:lastchild td {
+        border: none;
+      }
+    }
+  }
+}
+
+/* Right Sidebar Styles */
+.rightSide-top {
+  display: flex;
+  justify-content: flex-end;
+  gap: 2rem;
+
+  // button {
+  //   display: none;
+  // }
+
+  .rightSide-top-theme {
+    background: $color-light;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 1.6rem;
+    width: 4.2rem;
+    cursor: pointer;
+    border-radius: $border-radius-1;
+
+    span {
+      font-size: 1.2rem;
+      width: 50%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &.active {
+        background: $color-primary;
+        color: white;
+        border-radius: $border-radius-1;
+      }
+    }
+  }
+  .rightSide-top-language {
+    background: $color-light;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 1.6rem;
+    width: 4.2rem;
+    cursor: pointer;
+    border-radius: $border-radius-1;
+
+    span {
+      font-size: 1.2rem;
+      width: 50%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &.active {
+        background: $color-primary;
+        color: white;
+        border-radius: $border-radius-1;
+      }
+    }
+  }
+
+  .rightSide-top-profile {
+    display: flex;
+    gap: 2rem;
+    text-align: right;
+  }
+}
+
+.rightSide-updates {
+  margin-top: 1rem;
+
+  h2 {
+    margin-bottom: 0.8rem;
+  }
+
+  .rightSide-feed {
+    background: $color-white;
+    padding: $card-padding;
+    border-radius: $card-border-radius;
+    box-shadow: $box-shadow;
+    transition: all 300ms ease;
+
+    &:hover {
+      box-shadow: none;
+    }
+
+    .rightSide-feed-post {
+      display: grid;
+      grid-template-columns: 2.6rem auto;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+/* Analytics Section Styles */
+.rightSide-analytics {
+  margin-top: 2rem;
+
+  h2 {
+    margin-bottom: 0.8rem;
+  }
+
+  @mixin item {
+    background: $color-white;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.7rem;
+    padding: 1.4rem $card-padding;
+    border-radius: $border-radius-3;
+    box-shadow: $box-shadow;
+    transition: all 300ms ease;
+
+    &:hover {
+      box-shadow: none;
+    }
+
+    .rightSide-analytics-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin: 0;
+      width: 100%;
+    }
+
+    .rightSide-analytics-icon {
+      padding: 0.6rem;
+      color: $color-white;
+      border-radius: 50%;
+      background: $color-primary;
+      display: flex;
+    }
+  }
+  .rightSide-analytics-customer {
+    @include item;
+    .rightSide-analytics-icon {
+      background: $color-success;
+    }
+  }
+  .rightSide-analytics-offline {
+    @include item;
+    .rightSide-analytics-icon {
+      background: $color-danger;
+    }
+  }
+  .rightSide-analytics-online {
+    @include item;
+  }
+
+  .rightSide-analytics-new {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.7rem;
+    padding: 1.4rem $card-padding;
+    border-radius: $border-radius-3;
+    box-shadow: $box-shadow;
+    transition: all 300ms ease;
+    background: transparent;
+    border: 2px dashed $color-primary;
+    color: $color-primary;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .rightSide-analytics-collapse {
+    background: $color-white;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.7rem;
+    padding: 1.4rem $card-padding;
+    border-radius: $border-radius-3;
+    box-shadow: $box-shadow;
+    transition: all 300ms ease;
+    align-items: center;
+    justify-content: center;
+    color: $color-primary;
+  }
+}
+
+/* Add more module-specific styles here */
+
+@media screen and (max-width: 1200px) {
+  .container {
+    width: 94%;
+    grid-template-columns: 7rem auto 23rem;
+  }
+  .leftSide-brand-logo h2 {
+    display: none;
+  }
+  .leftSide-navbar h3 {
+    display: none;
+  }
+  .leftSide-navbar a {
+    width: 5.6rem;
+  }
+  .leftSide-navbar a:last-child {
+    position: relative;
+    margin-top: 1.8rem;
+  }
+  .main-cards {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .main-table {
+    width: 94%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 2rem 0 0 8.8rem;
+  }
+  .main-table table {
+    width: 83vw;
+  }
+  .main-table table thead tr th:first-child,
+  .main-table table thead tr th:last-child {
+    display: none;
+  }
+  .main-table table tbody tr td:first-child,
+  .main-table table tbody tr td:last-child {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    width: 100%;
+
+    grid-template-columns: 1fr;
+  }
+
+  .l-leftSide {
+    display: none;
+    
+    position: fixed;
+
+    left: 0;
+
+    background: $color-white;
+
+    width: 18rem;
+
+    z-index: 3;
+
+    box-shadow: 1rem 3rem 4rem $color-light;
+
+    height: 100vh;
+
+    padding-right: $card-padding;
+
+    .leftSide-brand-logo {
+      margin-left: 1rem;
+    }
+
+    h2 {
+      display: none;
+    }
+
+    .leftSide-navbar {
+      
+      h3 {
+        display: none;
+      }
+
+      a {
+        width: 100%;
+
+        height: 3.4rem;
+
+        &:last-child {
+          position: absolute;
+
+          bottom: 5rem;
+        }
+      }
+    }
+    #menu-btn{
+      display: block;
+
+    }
+  }
+
+  .l-main {
+    margin-top: 8rem;
+
+    padding: 0 1rem;
+
+    .main-table {
+      position: relative;
+
+      margin: 3rem 0 0 0;
+
+      width: 100%;
+
+      table {
+        width: 100%;
+
+        margin: 0;
+      }
+    }
+  }
+
+  .l-rightSide {
+    width: 94%;
+
+    margin: 0 auto 4rem;
+
+    .rightSide-top {
+      position: fixed;
+
+      top: 0;
+
+      left: 0;
+
+      align-items: center;
+
+      padding: 0 0.8rem;
+
+      height: 4.6rem;
+
+      background: $color-white;
+
+      width: 100%;
+
+      margin: 0;
+
+      z-index: 2;
+
+      box-shadow: 0 1rem 1rem $color-light;
+
+      .rightSide-top-theme {
+        width: 4.4rem;
+
+        position: absolute;
+
+        left: 66%;
+      }
+
+      .rightSide-top-profile {
+        display: none;
+      }
+    }
+  }
+}
